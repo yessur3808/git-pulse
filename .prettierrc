@@ -1,0 +1,14 @@
+{
+    "tabWidth": 2,
+    "printWidth": 100,
+    "useTabs": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "trailingComma": "es5",
+    "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^@/design(/.*|)$", "^@/(.*)$", "^[./]"],
+    "importOrderSortSpecifiers": true,
+    "importOrderGroupNamespaceSpecifiers": true
+  }
+  
+  

@@ -1,0 +1,93 @@
+{
+    "env": { "browser": true, "es6": true, "node": true },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts", "**/*.tsx"],
+        "extends": [
+          "xo",
+          "xo-typescript/space",
+          "xo-react/space",
+          "eslint:recommended",
+          "plugin:import/recommended",
+          "plugin:import/typescript",
+          "plugin:react/recommended",
+          "plugin:jsx-a11y/recommended",
+          "plugin:@typescript-eslint/recommended",
+          "eslint-config-prettier"
+        ],
+        "settings": {
+          "import/resolver": {
+            "typescript": true
+          }
+        },
+        "rules": {
+          "import/no-cycle": "error",
+          "no-unused-vars": "off",
+          "no-warning-comments": "off",
+          "arrow-body-style": "warn",
+          "@typescript-eslint/no-explicit-any": "error",
+          "react-hooks/exhaustive-deps": "error",
+          "capitalized-comments": "off",
+          "react/prop-types": "off",
+          "react/no-unescaped-entities": "off",
+          "react/require-default-props": "off",
+          "react/react-in-jsx-scope": "off",
+          "react/no-unused-prop-types": "off",
+          "react/function-component-definition": "off",
+          "react/jsx-sort-props": "off",
+          "@typescript-eslint/naming-convention": "off",
+          "@typescript-eslint/no-empty-interface": "off",
+          "@typescript-eslint/consistent-type-imports": "off",
+          "@typescript-eslint/consistent-type-definitions": "off",
+          "@typescript-eslint/no-namespace": "off",
+          "@typescript-eslint/no-extraneous-class": "off",
+          "@typescript-eslint/ban-types": "off",
+          "@typescript-eslint/no-unsafe-assignment": "off",
+          "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+              "argsIgnorePattern": "^_",
+              "varsIgnorePattern": "^_",
+              "caughtErrorsIgnorePattern": "^_"
+            }
+          ],
+          "no-restricted-imports": [
+            "error",
+            {
+              "paths": [
+                {
+                  "name": "react-i18next",
+                  "importNames": ["useTranslation", "Trans"],
+                  "message": "Please import from @/libs/i18n instead"
+                },
+                {
+                  "name": "bignumber.js",
+                  "importNames": ["BigNumber", "default"],
+                  "message": "Please import from @/libs/bignumber instead"
+                }
+              ]
+            }
+          ],
+          "no-restricted-syntax": [
+              "error",
+              {
+                  "selector": "CallExpression[callee.object.name='console'][callee.property.name=/^(log|error|warn|info|debug|trace)$/]",
+                  "message": "Please use `log` from @/utils instead"
+              }
+          ]
+        }
+      },
+      {
+        "files": ["src/design/**/*", "src/libs/testing/**/*"],
+        "rules": {
+          "no-restricted-imports": "off"
+        }
+      }
+    ]
+  }
+  

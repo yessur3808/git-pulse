@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@utils/*": ["./src/utils/*"],
+        "@server": ["./src/server"],
+        "@server/*": ["./src/server/*"],
+        "@const": ["./src/constants"],
+        "@const/*": ["./src/constants/*"],
+        "@commits/*": ["./src/commits/*"],
+        "@commits": ["./src/commits"],
+        "@logger": ["./src/logger.ts"],
+        "@utils": ["./src/utils/index.ts"],
+      }
+    }
+  }
+  
