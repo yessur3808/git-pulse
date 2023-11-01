@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+bold() {
+  printf "\x1b[1m%s\x1b[0m\n" "$*"
+}
+
+main() {
+  # Check if working tree is clean
+  NO_STASH=
+  if OUTPUT=$(git status --porcelain) && [ -z "$OUTPUT" ]; then
+    NO_STASH=1
+  fi
+
+  # Stash, if working is dirty, before linting
+  if [ -z "$NO_STASH" ]; then
+    bold "Working tree is dirty, stashing changes..."
+    git stash push -u -m 'pre-push hook - stash before test' || exit 1
+  fi
+
+  RETURN_CODE=0
+  npm run lint || RETURN_CODE="$?"
+
+  # Restore working tree
+  if [ -z "$NO_STASH" ]; then
+    bold "Restoring your working tree..."
+    git stash pop --index || true # ignore failure, so the push may proceed
+  fi
+
+  return "$RETURN_CODE"
+}
+
+main "$@"

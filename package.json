@@ -1,0 +1,73 @@
+{
+  "name": "git-pulse",
+  "version": "0.1.0",
+  "description": "This project is a command-line tool and REST API service designed to generate activity on GitHub or GitLab. It creates commits with customizable messages and dates, making it appear as if you've been coding regularly. This is achieved by interacting with local Git repositories and pushing the changes to the specified GitHub or GitLab account.  ",
+  "repository": "git@github.com:yessur3808/git-pulse.git",
+  "author": {
+    "name": "Yaser I",
+    "email": "yaser3808@gmail.com"
+  },
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "gitpulse": "./dist/src/cli/index.js"
+  },
+  "main": "src/cli.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "lint": "prettier --write 'src/**/*.js'"
+  },
+  "dependencies": {
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    
+    "lodash": "^4.17.21",
+    "ora": "^7.0.1",
+    
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/boxen": "^3.0.1",
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/date-fns": "^2.6.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.20",
+    "@types/lodash": "^4.14.200",
+    "@types/node": "^20.8.9",
+    "@types/ora": "^3.2.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*src/**/*.{js,md}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "git",
+    "github",
+    "gitlab",
+    "nodejs",
+    "typescript", 
+    "cli",
+    "commit-history",
+    "git-activity",
+    "contributions-calendar",
+    "contribution-graph",
+    "contributions"
+  ]
+}
